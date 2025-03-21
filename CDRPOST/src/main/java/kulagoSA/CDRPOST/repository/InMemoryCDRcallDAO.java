@@ -40,14 +40,14 @@ public class InMemoryCDRcallDAO {
 
     public CDRcall findByNumber(String Number) {
         return CDRNOTE.stream()
-                .filter(element -> element.getCall().equals(Number))
+                .filter(element -> element.getIniciate_Number().equals(Number))
                 .findFirst()
                 .orElse(null);
     }
 
     public CDRcall updateNumber(CDRcall CDRcallNote) {
         var CDRnoteIndex = IntStream.range(0, CDRNOTE.size())
-                .filter(index -> CDRNOTE.get(index).getCall().equals(CDRcallNote.getCall()))
+                .filter(index -> CDRNOTE.get(index).getIniciate_Number().equals(CDRcallNote.getIniciate_Number()))
                 .findFirst()
                 .orElse(-1);
         if (CDRnoteIndex > -1){

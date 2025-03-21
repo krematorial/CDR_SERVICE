@@ -6,8 +6,8 @@ public class CDRcall {
     private String call;
     private String iniciate_Number;
     private String accept_Number;
-    private String DateStart;
-    private String DateEnd;
+    private String dateStart;
+    private String dateEnd;
 
 
     public String getCall() {
@@ -41,21 +41,21 @@ public class CDRcall {
 
     // Геттер для поля DateStart
     public String getDateStart() {
-        return DateStart;
+        return dateStart;
     }
 
     // Сеттер для поля DateStart
-    public void setDateStart(String DateStart) {
-        this.DateStart = DateStart;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 
     // Геттер для поля DateEnd
     public String getDateEnd() {
-        return DateEnd;
+        return dateEnd;
     }
 
     // Сеттер для поля DateEnd
-    public void setDateEnd(String DateEnd) {
-        this.DateEnd = DateEnd;
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 }
