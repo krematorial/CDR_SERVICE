@@ -1,14 +1,23 @@
 package kulagoSA.CDRPOST.model;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
+import org.springframework.data.annotation.Id;
 
 public class CDRcall {
+    @Id
+    private Long id;
+
+
     private String call;
     private String iniciate_Number;
     private String accept_Number;
     private String dateStart;
     private String dateEnd;
 
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public String getCall() {
         return call;
@@ -40,9 +49,7 @@ public class CDRcall {
     }
 
     // Геттер для поля DateStart
-    public String getDateStart() {
-        return dateStart;
-    }
+    public String getDateStart() { return dateStart; }
 
     // Сеттер для поля DateStart
     public void setDateStart(String dateStart) {

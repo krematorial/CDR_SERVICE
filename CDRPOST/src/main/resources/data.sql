@@ -1,0 +1,16 @@
+INSERT INTO subscriber (name, phone_number) VALUES
+('Subscriber 1', '12345678901'),
+('Subscriber 2', '12345678902'),
+('Subscriber 3', '12345678903'),
+('Subscriber 4', '12345678904'),
+('Subscriber 5', '12345678905'),
+('Subscriber 6', '12345678906'),
+('Subscriber 7', '12345678907'),
+('Subscriber 8', '12345678908'),
+('Subscriber 9', '12345678909'),
+('Subscriber 10', '12345678910'),
+('Subscriber 11', '12345678911'),
+('Subscriber 12', '12345678912'),
+('Subscriber 13', '12345678913'),
+('Subscriber 14', '12345678914'),
+('Subscriber 15', '12345678915');
