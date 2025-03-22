@@ -3,8 +3,10 @@ package kulagoSA.CDRPOST.repository;
 import kulagoSA.CDRPOST.model.CDRcall;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Repository
@@ -12,24 +14,6 @@ public class InMemoryCDRcallDAO {
     private final List<CDRcall> CDRNOTE = new ArrayList<>();
 
     public List<CDRcall> findAllCDRData() {
-
-        //CDRcall call1 = new CDRcall();
-        // CDRcall call2 = new CDRcall();
-
-       // call1.setCall("01");
-       // call1.setIniciate_Number("123-456-7890");
-       // call1.setAccept_Number("987-654-3210");
-       // call1.setDateStart("2023-10-01 12:00:00");
-       // call1.setDateEnd("2023-10-01 12:05:00");
-
-        //call2.setCall("02");
-        //call2.setIniciate_Number("111-222-3333");
-       // call2.setAccept_Number("444-555-6666");
-        //call2.setDateStart("2023-10-02 14:00:00");
-        //call2.setDateEnd("2023-10-02 14:10:00");
-
-       // return List.of(call1, call2);
-
         return  CDRNOTE;
     }
 
@@ -63,4 +47,29 @@ public class InMemoryCDRcallDAO {
             CDRNOTE.remove(CDRcallNote);
         }
     }
+
+    public List<CDRcall> findByIniciateNumberOrAcceptNumber(String msisdn, String s) {
+        return CDRNOTE.stream()
+                .filter(call -> call.getIniciate_Number().equals(msisdn) || call.getAccept_Number().equals(msisdn))
+                .collect(Collectors.toList());
+    }
+
+    // Метод для поиска записей по iniciateNumber или acceptNumber и диапазону дат
+    public List<CDRcall> findByIniciateNumberOrAcceptNumberAndDateStartBetween(
+            String msisdn, String s, LocalDateTime startDate, LocalDateTime endDate) {
+        return CDRNOTE.stream()
+                .filter(call -> (call.getIniciate_Number().equals(msisdn) || call.getAccept_Number().equals(msisdn)) &&
+                        call.getDateStartAsLocalDateTime().isAfter(startDate) &&
+                        call.getDateStartAsLocalDateTime().isBefore(endDate))
+                .collect(Collectors.toList());
+    }
+
+    // Метод для поиска записей по диапазону дат
+    public List<CDRcall> findByDateStartBetween(LocalDateTime startDate, LocalDateTime endDate) {
+        return CDRNOTE.stream()
+                .filter(call -> call.getDateStartAsLocalDateTime().isAfter(startDate) &&
+                        call.getDateStartAsLocalDateTime().isBefore(endDate))
+                .collect(Collectors.toList());
+    }
+
 }
