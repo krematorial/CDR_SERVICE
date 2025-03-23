@@ -22,7 +22,7 @@ public class DataGeneratorService {
     }
 
     private void generateSchemaSQL() {
-        String schemaFilePath = "C:/Users/choocha/Downloads/CDRPOST/CDRPOST/src/main/resources/schema.sql"; // Относительный путь
+        String schemaFilePath = "C:/Users/choocha/Downloads/CDRPOST/CDRPOST/src/main/resources/schema.sql";
         try (FileWriter writer = new FileWriter(schemaFilePath)) {
             // Создание таблицы subscriber
             writer.write("CREATE TABLE IF NOT EXISTS subscriber (\n");
@@ -51,7 +51,7 @@ public class DataGeneratorService {
         List<Subscriber> subscribers = generateSubscribers();
         List<CDRcall> cdrCalls = generateCDRCalls(subscribers);
 
-        String dataFilePath = "C:/Users/choocha/Downloads/CDRPOST/CDRPOST/src/main/resources/data.sql"; // Относительный путь
+        String dataFilePath = "C:/Users/choocha/Downloads/CDRPOST/CDRPOST/src/main/resources/data.sql";
         try (FileWriter writer = new FileWriter(dataFilePath))  {
             // Вставка данных в таблицу subscriber
             for (Subscriber subscriber : subscribers) {
