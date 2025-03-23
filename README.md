@@ -25,6 +25,19 @@ localhost:8080/api/v1/CDR/update_CDR - изменение записи
 localhost:8080/api/v1/CDR/delete_CDR/{Number} - удаление записи
 
 
+
+{
+
+    "id": 1,  
+    "call": "01",
+    "iniciate_Number": "79818559395",
+    "accept_Number": "79112574800",
+    "dateStart": "2023-10-01 12:00:00",
+    "dateEnd": "2023-10-01 12:05:00"
+}
+
+
+
 Модели: Представляют собой сущности данных, такие как CallDetail, CDRcall, Subscriber и UDR.
 
 Репозитории: Обеспечивают доступ к данным. В проекте используются in-memory репозитории, такие как InMemoryCDRcallDAO и InMemorySubcriberDAO.
